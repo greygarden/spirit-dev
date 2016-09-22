@@ -10,7 +10,7 @@ api:
     - NODEJS_LISTEN_PORT=8080
     - DB_CONNECTION_STRING=postgres://spirit_api:spirit_api@postgres:5432/spirit
   ports:
-    - "8081:8081"
+    - "8081:8080"
   log_opt:
     max-size: "1k"
 
