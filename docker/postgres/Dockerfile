@@ -1,0 +1,6 @@
+FROM postgres:9.5.2
+
+ENV LANG en_US.utf8
+ENV POSTGRES_DB spirit_api
+ENV POSTGRES_USER spirit_api
+ENV POSTGRES_PASSWORD spirit_api

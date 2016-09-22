@@ -1,0 +1,6 @@
+[submodule "spirit-api"]
+	path = spirit-api
+	url = git@github.com:kakushin-labs/spirit-api.git
+[submodule "spirit-frontend"]
+	path = spirit-frontend
+	url = https://github.com/kakushin-labs/spirit-frontend

@@ -1,0 +1,46 @@
+api:
+  build: .
+  dockerfile: docker/api/Dockerfile
+  links:
+    - postgres:postgres
+  volumes:
+    - ./spirit-api:/spirit/spirit-api
+    - /spirit/spirit-api/node_modules
+  environment:
+    - NODEJS_LISTEN_PORT=8080
+    - DB_CONNECTION_STRING=postgres://spirit_api:spirit_api@postgres:5432/spirit
+  ports:
+    - "8081:8081"
+  log_opt:
+    max-size: "1k"
+
+frontend:
+  build: .
+  dockerfile: docker/frontend/Dockerfile
+  volumes:
+    - "./spirit-frontend:/spirit/spirit-frontend"
+  ports:
+    - "80:8081"
+  log_opt:
+    max-size: "1k"
+
+nginx:
+  build: docker/nginx
+  volumes:
+    - "./spirit-frontend/build:/usr/share/nginx/html"
+  ports:
+    - "8080:8080"
+  log_opt:
+    max-size: "1k"
+
+postgres:
+  build: docker/postgres
+  ports:
+    - "5432:5432"
+  volumes_from:
+    - postgres_data
+  log_opt:
+    max-size: "1k"
+
+postgres_data:
+  build: docker/postgres-data
