@@ -11,6 +11,7 @@ api:
     - DB_CONNECTION_STRING=postgres://spirit_api:spirit_api@postgres:5432/spirit
   ports:
     - "8081:8080"
+    - "8082:8082"
   log_opt:
     max-size: "1k"
 
