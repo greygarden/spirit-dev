@@ -1,8 +1,8 @@
 FROM ubuntu:latest
 
-# Install wget for downloading node binaries
+# Install curl for downloading node, salt-master for worker automation
 RUN apt-get update
-RUN apt-get --yes install curl
+RUN apt-get --yes install curl salt-master
 # Download the nodejs binary
 RUN curl https://nodejs.org/dist/v6.6.0/node-v6.6.0-linux-x64.tar.gz > ~/nodejs.tar.gz
 # Change to the correct directory
